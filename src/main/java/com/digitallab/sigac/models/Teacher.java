@@ -11,7 +11,9 @@ import javax.persistence.*;
 @Table(name = "sigac_teacher")
 public class Teacher extends Person  {
 
-
+   @ManyToOne
+   @JoinColumn(name = "idGroup")
+   private Group group;
 
     public Teacher(){
 
