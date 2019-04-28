@@ -1,22 +1,32 @@
 package com.digitallab.sigac.models;
 
+import com.digitallab.sigac.commons.enums.Genre;
+import com.digitallab.sigac.commons.enums.IdentityType;
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
+@Table(name ="sigac_person")
 @MappedSuperclass
- abstract class Person  {
+ abstract class Person   {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String fullName;
-    private String cc;
-    private String code;
+    @Column(unique = true, nullable = false)
+    private Long documentNumber;
+    @Enumerated(EnumType.ORDINAL)
+    private IdentityType idType;
+    private String firstName;
+    private String secondName;
+    private String firstLastName;
+    private String secondLastName;
+    @Enumerated(EnumType.STRING)
+    private Genre genre;
     private String phone;
+    @Column(unique = true)
     private String email;
 
 }
