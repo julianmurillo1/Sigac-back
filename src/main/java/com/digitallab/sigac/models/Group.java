@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Data
 @Entity
@@ -16,8 +17,7 @@ public class Group {
     @Id
     @GeneratedValue
     private int id;
-    public Group(){
-
-    }
+    private String name;
+    private String description;
 
 }

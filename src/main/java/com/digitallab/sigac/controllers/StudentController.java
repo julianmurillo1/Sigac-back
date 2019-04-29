@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/student")
+@CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT, RequestMethod.DELETE})
 public class StudentController {
 
     private final StudentRepository studentRepository;
@@ -22,7 +23,7 @@ public class StudentController {
         this.studentRepository = studentRepository;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<Student>> findAll() {
         return ResponseEntity.ok(this.studentRepository.findAll());
     }
@@ -40,7 +41,7 @@ public class StudentController {
     }
 
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Student> createStudent(@RequestBody StudentVO studentVO){
         Student student = this.setStudent(studentVO);
         return  new ResponseEntity<>(this.studentRepository.save(student), HttpStatus.CREATED);
@@ -50,7 +51,6 @@ public class StudentController {
     @PutMapping("/{idStudent}")
     public ResponseEntity<Student> updateStudent(@PathVariable("idStudent") int idStudent, @RequestBody StudentVO studentVO){
         Student student = this.studentRepository.findById(idStudent);
-        System.out.println(student.getCode());
         if (student == null) {
             return  new ResponseEntity<Student>(HttpStatus.NOT_FOUND);
         } else {
@@ -73,9 +73,13 @@ public class StudentController {
 
     private Student setStudent(StudentVO studentVO ){
         Student student = new Student();
-        student.setFullName(studentVO.getFullName());
-        student.setCc(studentVO.getCc());
-        student.setCode(studentVO.getCode());
+        student.setIdType(studentVO.getIdType());
+        student.setDocumentNumber(studentVO.getDocumentNumber());
+        student.setFirstName(studentVO.getFirstName());
+        student.setSecondName(studentVO.getSecondName());
+        student.setFirstLastName(studentVO.getFirstLastName());
+        student.setSecondLastName(studentVO.getSecondLastName());
+        student.setGenre(studentVO.getGenre());
         student.setEmail(studentVO.getEmail());
         student.setPhone(studentVO.getPhone());
         return  student ;
