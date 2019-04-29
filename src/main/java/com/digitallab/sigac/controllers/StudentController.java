@@ -64,24 +64,36 @@ public class StudentController {
     public ResponseEntity<Student> deleteStudent(@PathVariable("idStudent") int idStudent){
         Student student = this.studentRepository.findById(idStudent) ;
         if(student == null){
-            return new ResponseEntity<Student>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }else{
             this.studentRepository.delete(student);
-            return new ResponseEntity<Student>(HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
         }
     }
 
     private Student setStudent(StudentVO studentVO ){
         Student student = new Student();
         student.setIdType(studentVO.getIdType());
+        student.setSecondName(studentVO.getSecondName());
         student.setDocumentNumber(studentVO.getDocumentNumber());
         student.setFirstName(studentVO.getFirstName());
-        student.setSecondName(studentVO.getSecondName());
         student.setFirstLastName(studentVO.getFirstLastName());
         student.setSecondLastName(studentVO.getSecondLastName());
+        student.setPhone(studentVO.getPhone());
         student.setGenre(studentVO.getGenre());
         student.setEmail(studentVO.getEmail());
-        student.setPhone(studentVO.getPhone());
+        student.setBrothers(studentVO.getBrothers());
+        student.setFatherDocument(studentVO.getFatherDocument());
+        student.setFatherIdType(studentVO.getFatherIdType());
+        student.setFatherName(studentVO.getFatherName());
+        student.setMotherDocument(studentVO.getMotherDocument());
+        student.setMotherIdType(studentVO.getMotherIdType());
+        student.setMotherName(studentVO.getMotherName());
+        student.setProgram(studentVO.getProgram());
+        student.setSisben(studentVO.getSisben());
+        student.setStratum(studentVO.getStratum());
+
+
         return  student ;
     }
 

@@ -83,6 +83,9 @@ public class TeacherController   {
         teacher.setGenre(teacherVO.getGenre());
         teacher.setEmail(teacherVO.getEmail());
         teacher.setPhone(teacherVO.getPhone());
+        teacher.setBirthDate(teacherVO.getBirthDate());
+        teacher.setSisben(teacher.getSisben());
+        teacher.setStratum(teacher.getStratum());
         return  teacher;
     }
 }

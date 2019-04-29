@@ -5,6 +5,7 @@ import com.digitallab.sigac.commons.enums.IdentityType;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 @Data
 abstract class PersonVO {
@@ -19,5 +20,8 @@ abstract class PersonVO {
     private Genre genre;
     private String phone;
     private String email;
+    private Date birthDate;
+    private Integer stratum;
+    private Integer sisben;
 
 }

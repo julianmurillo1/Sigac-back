@@ -20,9 +20,11 @@ public class Student extends Person {
     private String fatherName;
     @Enumerated(EnumType.ORDINAL)
     private IdentityType fatherIdType;
-    private String MotherName;
+    private Integer fatherDocument;
+    private String motherName;
     @Enumerated(EnumType.ORDINAL)
-    private IdentityType MotherIdType;
+    private IdentityType motherIdType;
+    private Integer motherDocument;
     private Integer brothers;
 
     public Student(){
