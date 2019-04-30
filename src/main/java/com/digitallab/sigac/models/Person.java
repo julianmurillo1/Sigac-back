@@ -2,6 +2,7 @@ package com.digitallab.sigac.models;
 
 import com.digitallab.sigac.commons.enums.Genre;
 import com.digitallab.sigac.commons.enums.IdentityType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -23,6 +24,7 @@ import java.sql.Date;
     private String secondName;
     private String firstLastName;
     private String secondLastName;
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private Date birthDate;
     @Enumerated(EnumType.ORDINAL)
     private Genre genre;

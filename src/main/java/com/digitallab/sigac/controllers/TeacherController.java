@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -83,7 +84,7 @@ public class TeacherController   {
         teacher.setGenre(teacherVO.getGenre());
         teacher.setEmail(teacherVO.getEmail());
         teacher.setPhone(teacherVO.getPhone());
-        teacher.setBirthDate(teacherVO.getBirthDate());
+        teacher.setBirthDate(Date.valueOf(teacherVO.getBirthDate()));
         teacher.setSisben(teacher.getSisben());
         teacher.setStratum(teacher.getStratum());
         return  teacher;

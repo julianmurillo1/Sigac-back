@@ -20,7 +20,7 @@ abstract class PersonVO {
     private Genre genre;
     private String phone;
     private String email;
-    private Date birthDate;
+    private String birthDate;
     private Integer stratum;
     private Integer sisben;
 

@@ -9,6 +9,7 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,6 +80,7 @@ public class StudentController {
         student.setFirstName(studentVO.getFirstName());
         student.setFirstLastName(studentVO.getFirstLastName());
         student.setSecondLastName(studentVO.getSecondLastName());
+        student.setBirthDate(Date.valueOf(studentVO.getBirthDate()));
         student.setPhone(studentVO.getPhone());
         student.setGenre(studentVO.getGenre());
         student.setEmail(studentVO.getEmail());
