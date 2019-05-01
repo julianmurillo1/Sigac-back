@@ -32,7 +32,7 @@ import java.sql.Date;
     @Column(unique = true)
     private String email;
    private Integer stratum;
-   private String sisben;
+   private Integer sisben;
 
 
 }

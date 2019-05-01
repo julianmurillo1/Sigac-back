@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StudentRepository extends JpaRepository<Student, String> {
 
-     Student findById(int documentNumber);
+     Student findById(int id);
 
 
 }

@@ -20,6 +20,6 @@ abstract class PersonVO {
     private String email;
     private String birthDate;
     private Integer stratum;
-    private String sisben;
+    private Integer sisben;
 
 }

@@ -3,6 +3,7 @@ package com.digitallab.sigac.controllers;
 import com.digitallab.sigac.models.Course;
 import com.digitallab.sigac.modelsVO.CourseVO;
 import com.digitallab.sigac.repositories.CourseRepository;
+import com.digitallab.sigac.repositories.TeacherRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +14,12 @@ import java.util.List;
 @RequestMapping("/api/course")
 @CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT, RequestMethod.DELETE})
 public class CourseController {
+    private final TeacherRepository teacherRepository;
     private final CourseRepository courseRepository;
 
-    public CourseController(CourseRepository courseRepository){
+    public CourseController(CourseRepository courseRepository, TeacherRepository teacherRepository){
         this.courseRepository = courseRepository;
+        this.teacherRepository = teacherRepository;
     }
 
     @GetMapping("/")
@@ -48,7 +51,7 @@ public class CourseController {
     public ResponseEntity<Course> updateCourse(@PathVariable("idCourse") int idCourse, @RequestBody CourseVO courseVO){
         Course course = this.courseRepository.findById(idCourse);
         if (course == null) {
-            return  new ResponseEntity<Course>(HttpStatus.NOT_FOUND);
+            return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             course = this.setCourse(courseVO);
             course.setId(idCourse);
@@ -73,6 +76,7 @@ public class CourseController {
         course.setGrade(courseVO.getGrade());
         course.setGradeNumber(courseVO.getGradeNumber());
         course.setDescription(courseVO.getDescription());
+        course.setIdTeacher(this.teacherRepository.findById(courseVO.getIdTeacher()));
 
 
 
