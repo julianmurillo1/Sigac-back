@@ -8,5 +8,5 @@ import lombok.EqualsAndHashCode;
 public class CourseVO extends EntityHeritageVO {
     private String grade;
     private String gradeNumber;
-    private int idTeacher;
+    private Long idTeacher;
 }

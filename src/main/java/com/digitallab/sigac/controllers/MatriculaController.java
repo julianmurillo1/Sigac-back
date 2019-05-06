@@ -79,7 +79,7 @@ public class MatriculaController {
 
     private Matricula setMatricula(MatriculaVO matriculaVO ){
         Matricula matricula = new Matricula();
-        matricula.setIdStudent(this.studentRepository.findById(matriculaVO.getIdStudent()));
+        matricula.setIdStudent(this.studentRepository.findByIdOrDocumentNumber(matriculaVO.getIdStudent()));
         matricula.setIdCourse(this.courseRepository.findById(matriculaVO.getIdCourse()));
 
         return  matricula ;

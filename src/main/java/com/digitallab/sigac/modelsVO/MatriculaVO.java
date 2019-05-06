@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class MatriculaVO {
     private int idMatricula;
-    private int idStudent;
+    private Long idStudent;
     private int idCourse;
 }

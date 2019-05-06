@@ -30,8 +30,8 @@ public class TeacherController   {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Teacher> findById(@PathVariable("id") int id) {
-        Teacher teacher = this.teacherRepository.findById(id);
+    public ResponseEntity<Teacher> findById(@PathVariable("id") Long id) {
+        Teacher teacher = this.teacherRepository.findByIdOrDocumentNumber(id);
         if(teacher != null){
             return new ResponseEntity<>(teacher, HttpStatus.OK);
         }else{
@@ -47,8 +47,8 @@ public class TeacherController   {
     }
 
     @PutMapping("/{idTeacher}")
-    public ResponseEntity<Teacher> updateStudent(@PathVariable("idTeacher") int idTeacher, @RequestBody TeacherVO teacherVO){
-        Teacher teacher = this.teacherRepository.findById(idTeacher);
+    public ResponseEntity<Teacher> updateStudent(@PathVariable("idTeacher") Long idTeacher, @RequestBody TeacherVO teacherVO){
+        Teacher teacher = this.teacherRepository.findByIdOrDocumentNumber(idTeacher);
         if (teacher == null) {
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
@@ -60,8 +60,8 @@ public class TeacherController   {
 
 
     @DeleteMapping("/{idTeacher}")
-    public ResponseEntity<Teacher> deleteStudent(@PathVariable("idTeacher") int idTeacher){
-         Teacher teacher = this.teacherRepository.findById(idTeacher) ;
+    public ResponseEntity<Teacher> deleteStudent(@PathVariable("idTeacher") Long idTeacher){
+         Teacher teacher = this.teacherRepository.findByIdOrDocumentNumber(idTeacher) ;
         if(teacher == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }else{

@@ -17,13 +17,19 @@ public class Student extends Person {
     @ManyToOne
     @JoinColumn(name = "idProgram")
     private Program program;
+    @Column(nullable = false)
     private String fatherName;
     @Enumerated(EnumType.ORDINAL)
+    @Column(nullable = false)
     private IdentityType fatherIdType;
+    @Column(nullable = false)
     private Integer fatherDocument;
+    @Column(nullable = false)
     private String motherName;
     @Enumerated(EnumType.ORDINAL)
+    @Column(nullable = false)
     private IdentityType motherIdType;
+    @Column(nullable = false)
     private Integer motherDocument;
     private Integer brothers;
 

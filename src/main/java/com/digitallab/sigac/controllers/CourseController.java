@@ -76,7 +76,7 @@ public class CourseController {
         course.setGrade(courseVO.getGrade());
         course.setGradeNumber(courseVO.getGradeNumber());
         course.setDescription(courseVO.getDescription());
-        course.setIdTeacher(this.teacherRepository.findById(courseVO.getIdTeacher()));
+        course.setIdTeacher(this.teacherRepository.findByIdOrDocumentNumber(courseVO.getIdTeacher()));
 
 
 
